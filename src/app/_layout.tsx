@@ -4,6 +4,7 @@ import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
+import { OneSignalEntry } from '../Utils/OneSisgnal'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -44,6 +45,8 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
+  //Call OneSignalEntry() to initialize OneSignal
+  OneSignalEntry()
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
